@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180111031626) do
 
+  create_table "apartments", force: :cascade do |t|
+    t.integer "number"
+    t.integer "tenant_id"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_apartments_on_property_id"
+    t.index ["tenant_id"], name: "index_apartments_on_tenant_id"
+  end
+
   create_table "landlords", force: :cascade do |t|
     t.string "name"
     t.string "email"

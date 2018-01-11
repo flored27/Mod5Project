@@ -11,7 +11,8 @@
                   zip: Faker::Address.zip,
                   state: Faker::Address.state,
                   taxes: Faker::Number.number(5),
-                  mortgage: Faker::Number.number(5)
+                  mortgage: Faker::Number.number(5),
+                  landlord_id: Faker::Number.number(1)
                   )
 end
 

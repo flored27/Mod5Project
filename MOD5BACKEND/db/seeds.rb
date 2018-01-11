@@ -29,3 +29,10 @@ end
                   property_id: Faker::Number.number(1)
                   )
 end
+
+20.times do
+  Landlord.create(name: Faker::Name.name,
+                  email: Faker::Internet.email,
+                  phone: Faker::Number.number(10)
+                  )
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111155144) do
+ActiveRecord::Schema.define(version: 20180112150923) do
 
   create_table "apartments", force: :cascade do |t|
     t.integer "number"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180111155144) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "properties", force: :cascade do |t|

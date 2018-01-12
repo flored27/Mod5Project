@@ -7,4 +7,5 @@ class Landlord < ApplicationRecord
   #not sure if it should be has many apartments, and then has many tenants through apartments
   validates :email, presence: true, uniqueness: true
   # so that users have to register with a new email
+  has_secure_password #to encrypt passwords
 end

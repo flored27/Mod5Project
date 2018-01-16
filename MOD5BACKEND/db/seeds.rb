@@ -34,6 +34,7 @@ end
 20.times do
   Landlord.create(name: Faker::Name.name,
                   email: Faker::Internet.email,
-                  phone: Faker::Number.number(10)
+                  phone: Faker::Number.number(10),
+                  password: "abc"
                   )
 end

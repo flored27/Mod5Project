@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112150923) do
+ActiveRecord::Schema.define(version: 20180116194444) do
 
   create_table "apartments", force: :cascade do |t|
     t.integer "number"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180112150923) do
     t.string "street_address"
     t.string "zip"
     t.integer "landlord_id"
+    t.string "name"
     t.index ["landlord_id"], name: "index_properties_on_landlord_id"
   end
 

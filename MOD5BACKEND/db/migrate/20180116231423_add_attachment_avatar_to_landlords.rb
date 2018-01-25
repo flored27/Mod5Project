@@ -1,4 +1,4 @@
-class AddAttachmentAvatarToLandlords < ActiveRecord::Migration
+class AddAttachmentAvatarToLandlords < ActiveRecord::Migration[5.1]
   def self.up
     change_table :landlords do |t|
       t.attachment :avatar

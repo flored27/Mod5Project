@@ -10,13 +10,13 @@
   Tenant.create(name: Faker::Name.name,
                 age: Faker::Number.number(2),
                 phone: Faker::Number.number(10),
+                apartment_id: Faker::Number.number(1),
                 email: Faker::Internet.email
                 )
 end
 
 20.times do
   Apartment.create(number: Faker::Number.number(2),
-                  tenant_id: Faker::Number.number(1),
                   property_id: Faker::Number.number(1)
                   )
 end

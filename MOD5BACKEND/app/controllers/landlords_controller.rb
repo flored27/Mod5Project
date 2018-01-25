@@ -1,5 +1,5 @@
 class LandlordsController < ApplicationController
-before_action :set_landlord, only: [:show, :update, :destroy]
+before_action :set_landlord, only: [:show, :destroy]
 
   # GET /landlords
   def index
@@ -14,9 +14,13 @@ before_action :set_landlord, only: [:show, :update, :destroy]
 
   # POST /landlord
   def create
+
     @landlord = Landlord.new(landlord_params)
     if @landlord.save
-      render json: @landlord,status: :created, landlord: @landlord
+
+      LandlordMailer.welcome_email(@landlord).deliver_now
+
+      render json: {landlord: @landlord, jwt: issue_token(@landlord.id)}, status: :created, landlord: @landlord
     else
       render json: @landlord.errors, status: :unprocessable_entity
     end
@@ -24,9 +28,10 @@ before_action :set_landlord, only: [:show, :update, :destroy]
 
   # PATCH/PUT /landlords/1
   def update
-    @landlord = Landlord.find(params[:id])
+      @landlord = Landlord.find(params[:id])
     @landlord.update(landlord_params)
     if @landlord.save
+      LandlordMailer.message_tenant(@landlord).deliver_now
       render json: @landlord
     else
       render json: @landlord.errors, status: :unprocessable_entity
@@ -43,7 +48,7 @@ before_action :set_landlord, only: [:show, :update, :destroy]
   end
 
   def landlord_params
-    params.require(:landlord).permit(:name, :email, :phone)
+    params.require(:landlord).permit(:name, :email, :phone, :password, :avatar, :message, :message_email)
   end
 
 end

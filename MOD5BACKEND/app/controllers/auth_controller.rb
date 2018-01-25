@@ -8,6 +8,10 @@ class AuthController < ApplicationController
         email: user.email,
         jwt: issue_token(user.id),
         properties: user.properties,
+        name: user.name,
+        phone: user.phone,
+        tenants: user.tenants,
+        apartments: user.apartments,
         status: 200
       }
     else
@@ -20,7 +24,11 @@ class AuthController < ApplicationController
       render json: {
         id: current_user.id,
         email: current_user.email,
-        properties: current_user.properties
+        name: current_user.name,
+        properties: current_user.properties,
+        tenants: current_user.tenants,
+        apartments: current_user.apartments,
+        phone: current_user.phone
       }
     else
       render json: {error: 'No id present on headers'}, status: 404

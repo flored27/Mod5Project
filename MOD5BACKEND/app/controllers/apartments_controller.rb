@@ -34,7 +34,9 @@ def update
 end
 
 def destroy
+  @ap = @apartment
   @apartment.destroy
+  render json: @ap
 end
 
 private
@@ -43,5 +45,7 @@ def set_apartment
 end
 
 def apartment_params
-  params.require(:apartment).permit(:number, :tenant_id, :property_id)
+  params.require(:apartment).permit(:number, :property_id, :avatar)
+end
+
 end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taxes: 1
+  mortgage: 1
+  location: MyString
+  state: MyString
+  county: MyString
+  city: MyString
+
+two:
+  taxes: 1
+  mortgage: 1
+  location: MyString
+  state: MyString
+  county: MyString
+  city: MyString

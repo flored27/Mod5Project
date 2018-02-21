@@ -41,13 +41,14 @@ module MOD5BACKEND
 
     config.action_mailer.smtp_settings = {
 
-      :user_name => ENV['app87031585@heroku.com'],
-      :password => ENV['lt9r9scu7520'],
+
       :domain => "heroku.com",
       :address => 'smtp.sendgrid.net',
       :port => 587,
       :authentication => :plain,
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
+      :user_name => Rails.application.secrets.email_user_name,
+      :password => Rails.application.secrets.email_password
 
       # domain: "127.0.0.1",
       # authentication: "login",

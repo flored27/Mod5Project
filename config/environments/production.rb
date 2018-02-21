@@ -54,6 +54,29 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "MOD5BACKEND_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.perform_deliveries = true
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+
+    :user_name => ENV['app87031585@heroku.com'],
+    :password => ENV['lt9r9scu7520'],
+    :domain => "heroku.com",
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+
+    # domain: "127.0.0.1",
+    # authentication: "login",
+    # user_name: Rails.application.secrets.email_user_name,
+    # password: Rails.application.secrets.email_password
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -67,6 +90,8 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

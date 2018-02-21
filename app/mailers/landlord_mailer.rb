@@ -1,5 +1,5 @@
 class LandlordMailer < ApplicationMailer
-  default from: 'propertyassistant2018@gmail.com'
+  default from: 'app87031585@heroku.com'
 
   def welcome_email(user)
 

@@ -73,7 +73,7 @@ class PropertiesController < ApplicationController
       end
     end
     if @property.save
-      @all={Property: @property, Tenants: @property.tenants, Apartments: @property.apartments}
+      @all={Property: @property, Tenants: @property.landlord.tenants, Apartments: @property.landlord.apartments}
       render json: @all
     else
       render json: @property.errors, status: :unprocessable_entity

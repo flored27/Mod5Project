@@ -33,17 +33,14 @@ module MOD5BACKEND
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-<<<<<<< HEAD
       :user_name => Rails.application.secrets.email_user_name,
       :password => Rails.application.secrets.email_password
-=======
-      
->>>>>>> 7474b5013df71b8af4e8d4acae7b31ede986d386
       :domain => "heroku.com",
       :address => 'smtp.sendgrid.net',
       :port => 587,
       :authentication => :plain,
       :enable_starttls_auto => true,
+
 
 
       # domain: "127.0.0.1",

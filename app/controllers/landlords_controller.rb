@@ -15,7 +15,6 @@ before_action :set_landlord, only: [:show, :destroy]
   def create
     @landlord = Landlord.new(landlord_params)
     if @landlord.save
-      console.log("Welcome, success")
       LandlordMailer.welcome_email(@landlord).deliver_now
     end
     #   render json: {landlord: @landlord, jwt: issue_token(@landlord.id)}, status: :created, landlord: @landlord

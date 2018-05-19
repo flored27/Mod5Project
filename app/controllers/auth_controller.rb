@@ -2,6 +2,7 @@ class AuthController < ApplicationController
   def create
     user = Landlord.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
+      console.log("Welcome, success")
 
       render json: {
         id: user.id,

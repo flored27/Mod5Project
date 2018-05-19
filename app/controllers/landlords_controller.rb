@@ -17,6 +17,7 @@ before_action :set_landlord, only: [:show, :destroy]
     if @landlord.save
       console.log("Welcome, success")
       LandlordMailer.welcome_email(@landlord).deliver_now
+    end
     #   render json: {landlord: @landlord, jwt: issue_token(@landlord.id)}, status: :created, landlord: @landlord
     # else
     #   render json: @landlord.errors, status: :unprocessable_entity
@@ -28,6 +29,7 @@ before_action :set_landlord, only: [:show, :destroy]
     @landlord.update(landlord_params)
     if @landlord.save
       LandlordMailer.message_tenant(@landlord).deliver_now
+    end
     #   render json: @landlord
     # else
     #   render json: @landlord.errors, status: :unprocessable_entity

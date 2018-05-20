@@ -15,7 +15,7 @@ class AuthController < ApplicationController
         status: 200
       }
     else
-      render json: {error: 'Landlord not found!'}, status: 404
+      render json: {error: "Landlord not found!"}, status: 404
     end
   end
 
@@ -38,9 +38,9 @@ class AuthController < ApplicationController
   def find
     user = Landlord.find_by(email: params[:email])
     if user
-      render json: {error: 'Landlord aleady exists!'}, status: 404
+      render json: {error: "Landlord aleady exists!"}, status: 404
     else
-      render json: {error: 'All good! Landlord does not exsit'}
+      render json: {error: "All good! Landlord does not exsit"}, status: 403
     end
   end
 end

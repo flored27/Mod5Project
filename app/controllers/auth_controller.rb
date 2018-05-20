@@ -34,4 +34,13 @@ class AuthController < ApplicationController
       render json: {error: 'No id present on headers'}, status: 404
     end
   end
+
+  def find
+    user = Landlord.find_by(email: params[:email])
+    if user
+      render json: {error: 'Landlord aleady exists!'}, status: 404
+    else
+      render json: {error: 'All good! Landlord does not exsit'}
+    end
+  end
 end

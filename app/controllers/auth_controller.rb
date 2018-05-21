@@ -44,8 +44,8 @@ class AuthController < ApplicationController
       }
     else
       render json: {
-        error: "All good! Landlord does not exist.",
-        message: "All good! Landlord does not exist."
+        error: "All good! Landlord email is not in database.",
+        message: "All good! Landlord email is not in database."
         }
     end
   end

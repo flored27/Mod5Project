@@ -39,12 +39,12 @@ class AuthController < ApplicationController
     user = Landlord.find_by(email: params[:email])
     if user
       render json: {
-        error: "Landlord aleady exists!"
+        error: "Landlord aleady exists!",
         message: "Landlord already exists!"
       }
     else
       render json: {
-        error: "All good! Landlord does not exist."
+        error: "All good! Landlord does not exist.",
         message: "All good! Landlord does not exist."
         }
     end

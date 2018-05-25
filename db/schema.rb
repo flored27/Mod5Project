@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124172542) do
+ActiveRecord::Schema.define(version: 20180525160853) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "apartments", force: :cascade do |t|
     t.string "number"
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180124172542) do
     t.string "message"
     t.string "message_email"
     t.string "apartment_number"
+    t.integer "property_id"
     t.index ["apartment_id"], name: "index_tenants_on_apartment_id"
   end
 

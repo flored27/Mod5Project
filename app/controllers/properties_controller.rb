@@ -30,7 +30,7 @@ class PropertiesController < ApplicationController
     @tenant_list = tenants.each do |t|
       apart = Apartment.find_by( property_id: @property.id, number: t[:apartment_number] )
       aID = apart[:id]
-      tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number] )
+      tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number], property_id: propsid )
       tenant.save
 
     end

@@ -83,7 +83,10 @@ class PropertiesController < ApplicationController
   def destroy
     userID = @property.landlord_id
     @property.destroy
-    @all = Property.where(landlord_id:userID)
+    @property_list = Property.where(landlord_id:userID)
+    @apartment_list = Apartment.where(landlord_id:userID)
+    @tenant_list = Tenant.where(landlord_id:userID)
+    @all={Property: @property_list, Tenants: @tenant_list, Apartments: @apartment_list}
     render json: @all
   end
 

@@ -23,14 +23,14 @@ class PropertiesController < ApplicationController
 
     apartments = params[:apartments]
     @apartment_list = apartments.each do |a|
-      apart = Apartment.create(number: a[:number], property_id: propsid)
+      apart = Apartment.create(number: a[:number], property_id: propsid, landlord_id: current_user.id)
       apart.save
     end
     tenants = params[:tenants]
     @tenant_list = tenants.each do |t|
       apart = Apartment.find_by( property_id: @property.id, number: t[:apartment_number] )
       aID = apart[:id]
-      tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number], property_id: propsid )
+      tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number], property_id: propsid, landlord_id: current_user.id )
       tenant.save
 
     end

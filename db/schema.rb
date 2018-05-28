@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525160853) do
+ActiveRecord::Schema.define(version: 20180528184758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180525160853) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer "landlord_id"
     t.index ["property_id"], name: "index_apartments_on_property_id"
   end
 
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20180525160853) do
     t.string "message_email"
     t.string "apartment_number"
     t.integer "property_id"
+    t.integer "landlord_id"
     t.index ["apartment_id"], name: "index_tenants_on_apartment_id"
   end
 

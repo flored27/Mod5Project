@@ -45,7 +45,7 @@ def set_apartment
 end
 
 def apartment_params
-  params.require(:apartment).permit(:number, :property_id, :avatar)
+  params.require(:apartment).permit(:number, :property_id, :landlord_id, :avatar)
 end
 
 end

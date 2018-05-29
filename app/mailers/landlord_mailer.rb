@@ -1,12 +1,10 @@
 class LandlordMailer < ApplicationMailer
-  default from: 'propertyassistant2018@gmail.com'
+  default from: 'from@example.com'
 
   def welcome_email(user)
-
     @user = user
-    @specialtext = `Hello #{user}, welcome to Property Assistant!`
-    @url  = 'http://gmail.fandm.edu'
-    mail(to: 'diego.flores@fandm.edu', subject: 'Welcome to Property Assistant 2018')
+    @specialtext = `Hello #{@user}, welcome to Property Assistant!`
+    mail(to: `#{@user.message_email}`, subject: 'Welcome to Property Assistant 2018')
   end
 
   def message_tenant(user)

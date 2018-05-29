@@ -52,7 +52,7 @@ class PropertiesController < ApplicationController
     apartments = params[:apartment]
     @apartment_list = apartments.each do |a|
       if a[:id] === nil
-        apart = Apartment.create(number: a[:number], property_id: a[:property_id])
+        apart = Apartment.create(number: a[:number], property_id: a[:property_id], landlord_id: current_user.id)
         apart.save
       else
         apart = Apartment.find(id=a[:id])
@@ -65,7 +65,7 @@ class PropertiesController < ApplicationController
       aID = apart[:id]
       if t[:id] === nil
 
-        tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number] )
+        tenant = Tenant.create(name: t[:name], age: t[:age], phone: t[:phone], email: t[:email], apartment_id: aID, apartment_number: t[:apartment_number], property_id: @property.id, landlord_id: current_user.id )
         tenant.save
       else
         tenant = Tenant.find(id=t[:id])

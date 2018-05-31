@@ -24,10 +24,13 @@ before_action :set_landlord, only: [:show, :destroy]
   end
 
   def update
+
     @landlord = Landlord.find(params[:id])
     @landlord.update(landlord_params)
     if @landlord.save
-      LandlordMailer.message_tenant(@landlord).deliver_now
+      render json: @landlord
+    else
+      render json: @landlord.errors, status: :unprocessable_entity
     end
     #   render json: @landlord
     # else

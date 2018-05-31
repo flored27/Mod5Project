@@ -7,9 +7,10 @@ class LandlordMailer < ApplicationMailer
     mail(to: `#{@user.message_email}`, subject: 'Welcome to Property Assistant 2018')
   end
 
-  def message_tenant(user)
-    @user = user
-    @specialtext = @user.message
-    mail(to: @user.message_email, subject: 'Message from Landlord')
+  def message_tenant(message, email, landlord)
+    @user = landlord
+    @tenant = email
+    @specialtext = message
+    mail(to: @tenant, subject: 'Message from Landlord')
   end
 end

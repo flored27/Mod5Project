@@ -49,4 +49,11 @@ class AuthController < ApplicationController
         }
     end
   end
+
+  def message
+    @landlord = Landlord.find(params[:id])
+    @message = params[:message]
+    @message_email = params[:message_email]
+    LandlordMailer.message_tenant(@message, @message_email, @landlord).deliver_now
+  end
 end

@@ -1,24 +1,36 @@
-# README
+<h1 align=center>Property Assistant 2018</h1>
+<h1 align=center><img src="/src/images/logo.png" alt="Property Assistant 2018 logo" /></h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Property Assistant 2018 is a property management app that allows landlords to keep track of their assets and communicate with tenants. This repository shows the back-end files for the web app.
 
-Things you may want to cover:
+Property Assistant 2018 back-end is built with Ruby on Rails and PostgreSQL instead of the default SQLite. The reason for this change is because the API is deployed on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails5).
 
-* Ruby version
+The relational database includes landlords (users), properties, apartments, and tenants. Tenants belong to apartments, which in turn belong to properties, and then belong to landlords. Deleting one property also deletes all of the respective apartments and tenants.
 
-* System dependencies
+Landlords can send emails to their tenants using the [SendGrid](https://sendgrid.com/) service with Rails' built-in ActionMailer.
 
-* Configuration
+The front-end of this repository can be found [here](https://github.com/flored27/Property-Assistant-2018)<br/>
+The demo for this repository can be found [here](https://property-assistant-2018.herokuapp.com/)<br/>
+To use, just register with an email and password, and you will be logged in right after. Other fields, including phone number, first name, and last name, can be left blank.
 
-* Database creation
+## Features:
+* user register/login/sign out
+* does not allow users to register twice with the same email
+* organizes properties with apartments & tenants
+* can create/edit/delete properties, apartments & tenants
+* allows users to send emails to tenants through back-end
 
-* Database initialization
+## Front-end built with:
+* Javascript
+* Material UI
+* CSS3
+* HTML5
+* Reactjs
+* Redux
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Back-end built with:
+* Ruby on Rails
+* PostgreSQL
+* ActionMailer
+* SendGrid
+* Heroku
